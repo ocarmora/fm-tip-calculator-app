@@ -1,0 +1,33 @@
+@import './colors';
+@import './typography';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-primary;
+    font-weight: $font-regular;
+}
+
+body {
+   background-color: $color-light-grayish-cyan;
+   min-height: 100vh;
+}
+
+header {
+    height: 144px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    height: calc(100vh - 144px);
+    background-color: $color-white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border-radius: 25px 25px 0 0;
+    padding: 32px;
+}

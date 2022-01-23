@@ -1,0 +1,9 @@
+.tip-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+}
+
+.tip-button, .tip-input {
+    width: 50%;
+}

@@ -1,0 +1,55 @@
+@import '../../scss/colors';
+@import '../../scss/typography';
+
+.input-text-container {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        font-size: $font-size-md;
+        font-weight: $font-bold;
+        color: $color-darker-grayish-cyan;
+    }
+
+    .input-with-icon {
+        position: relative;
+        display: flex;
+
+        i {
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 20px;
+            left: 15px;
+        }
+
+        input {
+            margin-top: 6px;;
+            border: none;
+            border-radius: 5px;
+            height: 48px;
+            background-color: $color-lighter-grayish-cyan;
+            font-size: $font-size-lg;
+            text-align: right;
+            padding: 6px 17px;
+            color: $color-very-dark-cyan;
+            font-weight: $font-bold;
+
+            &:focus {
+                outline: 2px solid $color-strong-cyan;
+            }
+        }
+    }
+
+}
+
+i.dollar-icon {
+    background-image: url('../../images/icon-dollar.svg');
+}
+
+i.person-icon {
+    background-image: url('../../images/icon-person.svg');
+}
