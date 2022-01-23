@@ -3,12 +3,19 @@
 
 .input-text-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     label {
         font-size: $font-size-md;
         font-weight: $font-bold;
         color: $color-darker-grayish-cyan;
+    }
+
+    span {
+        font-weight: $font-bold;
+        color: #E17052;
+        display: none;
     }
 
     .input-with-icon {
@@ -43,7 +50,17 @@
             }
         }
     }
+}
 
+
+.input-text-container.error {
+    span {
+        display: flex;
+    }
+
+    input {
+        outline: 2px solid #E17052;
+    }
 }
 
 i.dollar-icon {
