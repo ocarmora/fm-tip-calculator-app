@@ -4,7 +4,9 @@
 .amount-detail-container{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-weight: $font-bold;
+    margin-top: 21px;
 }
 
 .amount-detail {
@@ -29,4 +31,9 @@ span {
     color: $color-strong-cyan;
     font-size: $font-size-xl;
     font-weight: inherit;
+
+    @media screen and (min-width: 920px) {
+        font-size: 40px;
+    }
+
 }
