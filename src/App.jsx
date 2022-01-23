@@ -16,21 +16,20 @@ function App() {
       </header>
 
       <main>
-
         <div className='input-section'>
           <InputText label='Bill' id='input-bill' icon='dollar-icon'/>
           <Tip tips={tipAmmounts} className='mt-md' />
           <InputText label='Number of People' id='input-people' icon='person-icon' className='mt-md'/>
         </div>
 
-        <div className='resume-section mt-md'>
-          <ResumeAmount title='Tip Amount' amount={4.27} />
-          <ResumeAmount title='Total' amount={32.79} className='mt-sm' />
-          <ButtonReset className='mt-md' />
-        </div>
-        
+        <div className='resume-section'>
+          <div className="resume-amount-container">
+            <ResumeAmount title='Tip Amount' amount={4.27} />
+            <ResumeAmount id='total-per-person' title='Total' amount={32.79} className='mt-sm' />
+          </div>
+          <ButtonReset id='button-reset' className='mt-md' />
+        </div>        
       </main>
-
     </>
   );
 }
