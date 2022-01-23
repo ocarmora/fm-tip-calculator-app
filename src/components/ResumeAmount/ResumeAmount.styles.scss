@@ -1,0 +1,33 @@
+@import '../../scss/colors';
+@import '../../scss/typography';
+
+.resume-amount-container {
+    display: flex;
+    justify-content: space-between;
+    font-weight: $font-bold;
+
+    .amount-detail {
+        display: flex;
+        flex-direction: column;
+            font-weight: inherit;
+
+        &-title {
+            color: $color-white;
+            font-size: $font-size-md;
+            font-weight: inherit;
+        }
+
+        &-single {
+            color: $color-dark-grayish-cyan;
+            font-size: $font-size-sm;
+            font-weight: inherit;
+        }
+    }
+
+    span {
+        color: $color-strong-cyan;
+        font-size: $font-size-xl;
+        font-weight: inherit;
+    }
+
+}

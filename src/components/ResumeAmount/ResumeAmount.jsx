@@ -1,13 +1,14 @@
 import React from 'react';
+import './ResumeAmount.styles.scss';
 
 const ResumeAmount = (props) => {
   return (
-    <div className="">
-      <div className="">
-        <span>{props.title}</span>
-        <span>/person</span>
+    <div className={`resume-amount-container ${props.className}`}>
+      <div className='amount-detail'>
+        <span className='amount-detail-title'>{props.title}</span>
+        <span className='amount-detail-single'>/ person</span>
       </div>
-      <span>{props.amount}</span>
+      <span>${props.amount}</span>
     </div>
   );
 };

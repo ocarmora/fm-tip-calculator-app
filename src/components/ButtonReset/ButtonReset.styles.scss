@@ -1,0 +1,14 @@
+@import '../../scss/colors';
+@import '../../scss/typography';
+
+.button-reset {
+    cursor: pointer;
+    background-color: $color-strong-cyan;
+    border: none;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: $font-bold;
+    font-size: 20px;
+    padding: 9px;
+    border-radius: 5px;
+}

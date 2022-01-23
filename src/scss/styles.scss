@@ -31,3 +31,39 @@ main {
     border-radius: 25px 25px 0 0;
     padding: 32px;
 }
+
+.section-title {
+    font-size: $font-size-md;
+    font-weight: $font-bold;
+    color: $color-darker-grayish-cyan;
+}
+
+input.input-text {
+    border: none;
+    height: 48px;
+    border-radius: 5px;
+    background-color: $color-lighter-grayish-cyan;
+    font-size: $font-size-lg;
+    color: $color-very-dark-cyan;
+    font-weight: $font-bold;
+    width: 100%;
+    padding: 6px 17px;
+
+    &:focus {
+        outline: 2px solid $color-strong-cyan;
+    }
+}
+
+.resume-section {
+    background-color: $color-very-dark-cyan;
+    border-radius: 15px;
+    padding: 37px 24px 24px 24px;
+}
+
+.mt-md {
+    margin-top: 32px;
+}
+
+.mt-sm {
+    margin-top: 20px;
+}

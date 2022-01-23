@@ -4,13 +4,8 @@
 .input-text-container {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
-
-    label {
-        font-size: $font-size-md;
-        font-weight: $font-bold;
-        color: $color-darker-grayish-cyan;
-    }
 
     span {
         font-weight: $font-bold;
@@ -34,20 +29,8 @@
         }
 
         input {
-            margin-top: 6px;;
-            border: none;
-            border-radius: 5px;
-            height: 48px;
-            background-color: $color-lighter-grayish-cyan;
-            font-size: $font-size-lg;
+            margin-top: 6px;
             text-align: right;
-            padding: 6px 17px;
-            color: $color-very-dark-cyan;
-            font-weight: $font-bold;
-
-            &:focus {
-                outline: 2px solid $color-strong-cyan;
-            }
         }
     }
 }
