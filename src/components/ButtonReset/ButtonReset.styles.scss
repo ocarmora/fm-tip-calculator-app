@@ -13,4 +13,9 @@
     font-size: 20px;
     padding: 9px;
     border-radius: 5px;
+    transition: all .2s;
+
+    &:hover {
+        background-color: $color-cyan-hover;
+    }
 }

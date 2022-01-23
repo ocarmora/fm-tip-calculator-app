@@ -52,10 +52,12 @@ input.input-text {
     font-weight: $font-bold;
     width: 100%;
     padding: 6px 17px;
+    caret-color: $color-strong-cyan;
 
     &:focus {
         outline: 2px solid $color-strong-cyan;
     }
+
 }
 
 .resume-section {

@@ -24,8 +24,8 @@ function App() {
 
         <div className='resume-section'>
           <div className="resume-amount-container">
-            <ResumeAmount title='Tip Amount' amount={4.27} />
-            <ResumeAmount id='total-per-person' title='Total' amount={32.79} className='mt-sm' />
+            <ResumeAmount title='Tip Amount' amount={0} />
+            <ResumeAmount id='total-per-person' title='Total' amount={0} className='mt-sm' />
           </div>
           <ButtonReset id='button-reset' className='mt-md' />
         </div>        

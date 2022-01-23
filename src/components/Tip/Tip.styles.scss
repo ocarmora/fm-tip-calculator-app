@@ -27,6 +27,12 @@
     font-size: $font-size-lg;
     font-weight: $font-bold;
     padding: 0;
+    transition: all .2s;
+
+    &:hover {
+        color: $color-very-dark-cyan;
+        background-color: $color-cyan-hover;
+    }
 }
 
 .selected {
