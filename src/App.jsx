@@ -12,8 +12,8 @@ function App() {
   const [billAmount, setBillAmount] = useState('');
   const [totalPerson, setTotalPerson] = useState('');
   const [tipPercentage, setTipPercentage] = useState('');
-  const [tipAmountPerPerson, setTipAmountPerPerson] = useState(0);
-  const [totalPerPerson, setTotalPerPerson] = useState(0);
+  const [tipAmountPerPerson, setTipAmountPerPerson] = useState('0.00');
+  const [totalPerPerson, setTotalPerPerson] = useState('0.00');
   const [cleanTipPercentage, setCleanTipPercentage] = useState(false);
   const [billInputError, setBillInputError] = useState(false);
   const [totalPersonError, setTotalPersonError] = useState(false);
@@ -43,13 +43,11 @@ function App() {
     setBillAmount('');
     setTotalPerson('');
     setTipPercentage('');
-    setTipAmountPerPerson(0);
-    setTotalPerPerson(0);
+    setTipAmountPerPerson('0.00');
+    setTotalPerPerson('0.00');
     setCleanTipPercentage(!cleanTipPercentage);
     cleanErrors();
     setResetButtonDisabled(true);
-
-    console.log('test')
   }
 
   const cleanErrors = () => {
@@ -74,8 +72,8 @@ function App() {
     const _tipPerPerson = calculateTipAmountPerPerson(billAmount, tipPercentage, totalPerson);
     const _totalPerPerson = calculateTotalPerPerson(billAmount, totalPerson, _tipPerPerson);
 
-    setTipAmountPerPerson(Number.isSafeInteger(_tipPerPerson) ? _tipPerPerson.toFixed(0) : _tipPerPerson.toFixed(2));
-    setTotalPerPerson(Number.isSafeInteger(_totalPerPerson) ? _totalPerPerson.toFixed(0) : _totalPerPerson.toFixed(2));
+    setTipAmountPerPerson(_tipPerPerson.toFixed(2));
+    setTotalPerPerson(_totalPerPerson.toFixed(2));
   }
 
 
