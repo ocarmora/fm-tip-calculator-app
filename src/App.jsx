@@ -14,6 +14,7 @@ function App() {
   const [tipPercentage, setTipPercentage] = useState('');
   const [tipAmountPerPerson, setTipAmountPerPerson] = useState('');
   const [totalPerPerson, setTotalPerPerson] = useState('');
+  const [cleanTipPercentage, setCleanTipPercentage] = useState(false);
 
   const handleBillChange = (event) => {
     setBillAmount(event.target.value);
@@ -37,9 +38,10 @@ function App() {
   }
 
   const handleResetClick = () => {
-    setBillAmount(0);
-    setTotalPerson(0);
-    setTipPercentage(0);
+    setBillAmount('');
+    setTotalPerson('');
+    setTipPercentage('');
+    setCleanTipPercentage(!cleanTipPercentage);
   }
 
   useEffect(() => {
@@ -59,7 +61,7 @@ function App() {
       <main>
         <div className='input-section'>
           <InputText label='Bill' id='input-bill' icon='dollar-icon' onChange={handleBillChange} value={billAmount} />
-          <Tip tips={tipAmmounts} className='mt-md' onChange={handleTipPercentageChange} />
+          <Tip tips={tipAmmounts} className='mt-md' onChange={handleTipPercentageChange} cleanTipPercentage={cleanTipPercentage} />
           <InputText label='Number of People' icon='person-icon' className='mt-md' onChange={handlePersonChange} value={totalPerson} />
         </div>
 

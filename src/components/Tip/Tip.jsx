@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Tip.styles.scss';
 
 const Tip = (props) => {
@@ -7,17 +7,27 @@ const Tip = (props) => {
   const [customTipPercentage, setCustomTipPercentage] = useState('');
 
   const handleTipSelection = (event) => {
-    if(event.target.name !== 'custom') {
+    if(event.target.name === 'tip-custom') {
+      setTipSelected('');
+      setCustomTipPercentage(event.target.value);
+    }else{
       setCustomTipPercentage('');
+      setTipSelected(event.target.value);
     }
-
-    setTipSelected(event.target.value);
+    
     handleOnChange(event);
   }
 
   const handleOnChange = (event) => {
     props.onChange(event);
   } 
+
+  useEffect(() => {
+    setTipSelected('')
+    setCustomTipPercentage('');
+  
+  }, [props.cleanTipPercentage]);
+  
 
   return (
     <div className={`tip-section ${props.className}`}>
