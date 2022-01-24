@@ -9,7 +9,7 @@ const InputText = (props) => {
         <span className='error'>Can't be zero</span>
         <div className='input-with-icon'>
           <i className={`icon ${props.icon}`}></i>
-          <input id={ props.id } type="text" pattern="\d*" className='input-text' placeholder='0' onChange={props.onChange} value={props.value} onBlur={props.onBlur} />
+          <input id={ props.id } type="text" pattern="\d*" className='input-text' placeholder='0' onChange={props.onChange} value={props.value} onBlur={props.onBlur} autoComplete='off' />
         </div>
       </div>
     </div>

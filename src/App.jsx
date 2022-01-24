@@ -12,8 +12,8 @@ function App() {
   const [billAmount, setBillAmount] = useState('');
   const [totalPerson, setTotalPerson] = useState('');
   const [tipPercentage, setTipPercentage] = useState('');
-  const [tipAmountPerPerson, setTipAmountPerPerson] = useState('');
-  const [totalPerPerson, setTotalPerPerson] = useState('');
+  const [tipAmountPerPerson, setTipAmountPerPerson] = useState(0);
+  const [totalPerPerson, setTotalPerPerson] = useState(0);
   const [cleanTipPercentage, setCleanTipPercentage] = useState(false);
   const [billInputError, setBillInputError] = useState(false);
   const [totalPersonError, setTotalPersonError] = useState(false);
@@ -22,8 +22,7 @@ function App() {
     setBillAmount(event.target.value);
   }
 
-  const handleTipPercentageChange = (event) => {
-    /* console.log(event.target.value); */
+  const handleTipPercentageChange = (event) => { 
     setTipPercentage(event.target.value);
   }
 
@@ -43,24 +42,31 @@ function App() {
     setBillAmount('');
     setTotalPerson('');
     setTipPercentage('');
+    setTipAmountPerPerson(0);
+    setTotalPerPerson(0);
     setCleanTipPercentage(!cleanTipPercentage);
+    cleanErrors();
   }
 
-  const validate = () => {
+  const cleanErrors = () => {
     setBillInputError(false);
     setTotalPersonError(false);
+  }
 
-    if (billAmount === '') {
-      return setBillInputError(true);
-    } else if (totalPerson === '')  {
-      return setTotalPersonError(true);
+  const validateInput = (event) => {
+
+    if(event.target.id === 'bill-input') {
+      setBillInputError(false); 
+    }else {
+      setTotalPersonError(false);
     }
 
-    return true;
+    if(event.target.value === '') {
+      return event.target.id === 'bill-input' ? setBillInputError(true) : setTotalPersonError(true);
+    }
   }
 
   const calculateAll = () => {
-    if(!validate()) return;
     const _tipPerPerson = calculateTipAmountPerPerson(billAmount, tipPercentage, totalPerson);
     const _totalPerPerson = calculateTotalPerPerson(billAmount, totalPerson, _tipPerPerson);
 
@@ -70,7 +76,9 @@ function App() {
 
 
   useEffect(() => {
-    // calculateAll();
+    if(totalPerson && billAmount && tipPercentage) {
+      calculateAll();
+    }
   }, [totalPerson, billAmount, tipPercentage]);
 
   return (
@@ -81,9 +89,26 @@ function App() {
 
       <main>
         <div className='input-section'>
-          <InputText label='Bill' icon='dollar-icon' onChange={handleBillChange} value={billAmount} error={billInputError} onBlur={validate} />
+          <InputText
+            id='bill-input'
+            label='Bill'
+            icon='dollar-icon'
+            value={billAmount}
+            error={billInputError}
+            onChange={handleBillChange}
+            onBlur={validateInput}
+           />
           <Tip tips={tipAmmounts} className='mt-md' onChange={handleTipPercentageChange} cleanTipPercentage={cleanTipPercentage} />
-          <InputText label='Number of People' icon='person-icon' className='mt-md' onChange={handlePersonChange} value={totalPerson} error={totalPersonError} onBlur={validate} />
+          <InputText
+            id='input-input'
+            label='Number of People'
+            icon='person-icon'
+            className='mt-md'
+            value={totalPerson}
+            error={totalPersonError}
+            onChange={handlePersonChange}
+            onBlur={validateInput}
+          />
         </div>
 
         <div className='resume-section'>
