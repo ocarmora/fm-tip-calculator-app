@@ -70,8 +70,8 @@ function App() {
     const _tipPerPerson = calculateTipAmountPerPerson(billAmount, tipPercentage, totalPerson);
     const _totalPerPerson = calculateTotalPerPerson(billAmount, totalPerson, _tipPerPerson);
 
-    setTipAmountPerPerson((Math.round(_tipPerPerson * 100) / 100).toFixed(2));
-    setTotalPerPerson((Math.round(_totalPerPerson * 100) / 100).toFixed(2));
+    setTipAmountPerPerson(Number.isSafeInteger(_tipPerPerson) ? _tipPerPerson.toFixed(0) : _tipPerPerson.toFixed(2));
+    setTotalPerPerson(Number.isSafeInteger(_totalPerPerson) ? _totalPerPerson.toFixed(0) : _totalPerPerson.toFixed(2));
   }
 
 
