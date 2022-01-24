@@ -32,6 +32,7 @@ const Tip = (props) => {
                 onChange={handleTipSelection}
                 key={index}
                 name='tip-custom'
+                pattern="\d*"
                 value={customTipPercentage}
               />
             : <button
