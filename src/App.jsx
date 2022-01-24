@@ -17,6 +17,7 @@ function App() {
   const [cleanTipPercentage, setCleanTipPercentage] = useState(false);
   const [billInputError, setBillInputError] = useState(false);
   const [totalPersonError, setTotalPersonError] = useState(false);
+  const [resetButtonDisabled, setResetButtonDisabled] = useState(true);
 
   const handleBillChange = (event) => {
     setBillAmount(event.target.value);
@@ -46,6 +47,9 @@ function App() {
     setTotalPerPerson(0);
     setCleanTipPercentage(!cleanTipPercentage);
     cleanErrors();
+    setResetButtonDisabled(true);
+
+    console.log('test')
   }
 
   const cleanErrors = () => {
@@ -77,6 +81,7 @@ function App() {
 
   useEffect(() => {
     if(totalPerson && billAmount && tipPercentage) {
+      setResetButtonDisabled(false);
       calculateAll();
     }
   }, [totalPerson, billAmount, tipPercentage]);
@@ -116,7 +121,7 @@ function App() {
             <ResumeAmount title='Tip Amount' amount={tipAmountPerPerson} />
             <ResumeAmount id='total-per-person' title='Total' amount={totalPerPerson} className='mt-sm' />
           </div>
-          <ButtonReset id='button-reset' className='mt-md' onClick={handleResetClick} />
+          <ButtonReset disabled={resetButtonDisabled} id='button-reset' className='mt-md' onClick={handleResetClick} />
         </div>        
       </main>
     </>

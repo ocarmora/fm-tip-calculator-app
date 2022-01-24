@@ -18,4 +18,9 @@
     &:hover {
         background-color: $color-cyan-hover;
     }
+
+    &:disabled {
+        cursor: auto;
+        background-color: #0D686C;
+    }
 }
