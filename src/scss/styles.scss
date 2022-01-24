@@ -86,9 +86,9 @@ input.input-text {
 
 @media screen and (min-width: 920px) {
 
-    // header {
-    //     padding: 163px 0 87px 0;
-    // }
+    header {
+        padding: 0;
+    }
     
     body {
         align-items: center;
@@ -102,6 +102,7 @@ input.input-text {
         justify-content: space-between;
         align-items: center;
         border-radius: 25px;
+        margin-top: 75px;
         box-shadow: 0px 32px 43px rgba(79, 166, 175, 0.200735);
     }
 
