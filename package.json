@@ -2,7 +2,7 @@
   "name": "fm-splitter",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://oscarvajalmora.github.io/fm-splitter",
+  "homepage": "https://oscarvajalmora.github.io/fm-tip-calculator-app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
