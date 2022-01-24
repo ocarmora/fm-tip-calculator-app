@@ -4,18 +4,20 @@
 .input-text-container {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
 
     span {
         font-weight: $font-bold;
         color: #E17052;
         display: none;
+        font-size: $font-size-md;
     }
 
     .input-with-icon {
         position: relative;
         display: flex;
+        width: 100%;
 
         i {
             background-position: center center;
@@ -38,7 +40,7 @@
 
 .input-text-container.error {
     span {
-        display: flex;
+        display: inline-block;
     }
 
     input {

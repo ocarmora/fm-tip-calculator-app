@@ -15,6 +15,8 @@ function App() {
   const [tipAmountPerPerson, setTipAmountPerPerson] = useState('');
   const [totalPerPerson, setTotalPerPerson] = useState('');
   const [cleanTipPercentage, setCleanTipPercentage] = useState(false);
+  const [billInputError, setBillInputError] = useState(false);
+  const [totalPersonError, setTotalPersonError] = useState(false);
 
   const handleBillChange = (event) => {
     setBillAmount(event.target.value);
@@ -44,12 +46,31 @@ function App() {
     setCleanTipPercentage(!cleanTipPercentage);
   }
 
-  useEffect(() => {
+  const validate = () => {
+    setBillInputError(false);
+    setTotalPersonError(false);
+
+    if (billAmount === '') {
+      return setBillInputError(true);
+    } else if (totalPerson === '')  {
+      return setTotalPersonError(true);
+    }
+
+    return true;
+  }
+
+  const calculateAll = () => {
+    if(!validate()) return;
     const _tipPerPerson = calculateTipAmountPerPerson(billAmount, tipPercentage, totalPerson);
     const _totalPerPerson = calculateTotalPerPerson(billAmount, totalPerson, _tipPerPerson);
 
     setTipAmountPerPerson(_tipPerPerson);
     setTotalPerPerson(_totalPerPerson);
+  }
+
+
+  useEffect(() => {
+    // calculateAll();
   }, [totalPerson, billAmount, tipPercentage]);
 
   return (
@@ -60,9 +81,9 @@ function App() {
 
       <main>
         <div className='input-section'>
-          <InputText label='Bill' id='input-bill' icon='dollar-icon' onChange={handleBillChange} value={billAmount} />
+          <InputText label='Bill' icon='dollar-icon' onChange={handleBillChange} value={billAmount} error={billInputError} onBlur={validate} />
           <Tip tips={tipAmmounts} className='mt-md' onChange={handleTipPercentageChange} cleanTipPercentage={cleanTipPercentage} />
-          <InputText label='Number of People' icon='person-icon' className='mt-md' onChange={handlePersonChange} value={totalPerson} />
+          <InputText label='Number of People' icon='person-icon' className='mt-md' onChange={handlePersonChange} value={totalPerson} error={totalPersonError} onBlur={validate} />
         </div>
 
         <div className='resume-section'>
